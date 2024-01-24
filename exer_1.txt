@@ -1,0 +1,27 @@
+//write a program using getchar for read and putchar for put the code in three separate file  put input routine in one file output routine in second and main() routine in thrid file and complice them separately until the assembling stage and link them together
+
+for this we need create three file separately with read.c, write.c and main.c in one directory
+
+1)after writing the code we need to complie them till assembli state where we get output of three file with .o extension whish are similar to executable file but not exactly 
+ by "gcc -c *.c"
+
+it will compile all the 3 file in the directory with name main.c,write.c read.c till assemblily state then we get three file with same with .o extension you also do the complice of each c file separately like "gcc -c main.c" and remain two also don ein the same way
+
+2)now after getting three object file in the same directory we need to link them together in as a final program we will do that by using command line 
+"gcc *.o"
+
+or 
+
+"ld *.o -lc"
+
+
+here we will get the linked executable file of the three object file as a.out if you want you also change the default name of he executable from a.out to your prefered name like now i wanted has the a.out name as stogg instead of a.out for the  the commnad line is
+
+"gcc -o stogg *.o"
+
+or
+
+"ld -o stogg *.o -lc"
+
+3) now you run the executable file in your terminal and check the code for i/o routine working in one program as they were written and complice in one single .c file
+
