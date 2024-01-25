@@ -1,0 +1,38 @@
+1) what does a make file do it work similar as compiler and as per the same set of rule which are followed by the compiler and generate same kind of default execuatable file with the name a.out along warning and error signals but the main different is when we are doing  normal compile of several c files in one directory if any of the one file has error it will stop the compilation there it self and we need to look at the error and need to start the recompilation again from starting it may start compilation again with large c file which don't have any error which take alot of time even if you had a error in a small source code file of c out of several large c file which actually does have any error
+
+2)to overcome reduce the compilation time we have make command by making makefile which contain all  several file target and dependency let us assume that if you had several large c file along with one small  code of c file in a gaint project file which need to be compile together and get a single final executableprogram for it here when you use make command it will compile every file and stop at the file which has error in our case we had an  error in our small c file so at the first it will compile all the large and then show error for only small one  and stop so when you  recompile them again with make after making correction in that particular file then use make command then it will start compiling from where it has stop and it will compile only that file which has not be compile due to this our recompilation time for large file has save
+
+3)make command know what object module it has to compile from several other module and what he has to at that instant and where to link all the piece of the object module of several at one  make command determine the relation of several file of c code with each other in a given directory as dependencies on each other to get a single executable file out of many makefile is the list of dependencies  make has some rule to be follow while that are
+  1)all file of the project that need to be compile should be in one directory 
+  2)makefile should consist of target from each file that need to put in the final executable program here Makefile starting letter should be capital 'M'  3)every target in the makefile should be followed : and dependencies follow by space and comment line should start with '#' the  example is given below
+   
+   # Makefile basic
+   farm:farm.o cow.o goat.o
+        gcc -o farm farm.o cow.o goat.o
+   farm.o:farm.c 
+        gcc -c farm.c
+   cow.o:cow.c
+         gcc -c cow.c
+   goat.o:goat.c
+          gcc -c goat.o
+  4)you can also reduce the reciepe by using macro as put the reciepe text as macro defination
+      name=stuff// here name is the macro name and stuff is the text of reciepe that you want to add to it to reduce typing
+  5)expand this macro defination by using command $(name) it will expand macro here
+   # Makefile basic
+   OBJECTS=farm.o cow.o goat.o
+   GC= gcc -c
+   farm:$(OBJECTS)
+        GC -o farm $(OBJECTS)
+   farm.o:farm.c 
+        $(GC) farm.c
+   cow.o:cow.c
+         $(GC) cow.c
+   goat.o:goat.c
+          $(GC) goat.o
+
+  6)last command is '-i' which is very much useful if you use this command when along with make  command on command line interface then the compilation that was stop for error module or file will never stop and continue with other correct code file till compilation over this is very useful when you had to do long compilation and has to go out for lauch or any kind of work where you don't want to stop compilation for error program but be sure to take the output of remainning code in other file by using redirective operator
+
+make -i > sample.o
+   
+   
+        
