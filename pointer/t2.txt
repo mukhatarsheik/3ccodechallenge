@@ -1,0 +1,1 @@
+This is the work which i had done on 30 january as a part of 3ccodechallenge on pointers like basic of pointer,double pointer,array of pointer using both static and dynamic memory,void poiter and point to array type
