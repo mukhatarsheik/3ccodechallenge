@@ -1,0 +1,28 @@
+in this file it tell about the login and other operation of the command line infrasture project code
+
+in this project i had created a external layer to the application logic of the real time application based on any microcontroller.that external layer is called as command line infrastructure the main purpose of this cmli layer is use to check the user is genuine or not before allowing him to the application core of the project here the user can login which taken care by the cmli itself it also take care about the help section of the registered commands with system this thing are not necessary for the application to check or one can say it reduce the extra work of the apllication and also keep track of no of command registered with the system in my code user can have using 5 command max in which he can only registered 3 new command like set,get and concat as because 2 more command are already installed by the user itself application look mainly for the command processing to assign value to the parameter like temperature,pressure and leds and send the request back to the cmli from there it is visible to the user it is for a single user  
+
+1)login:- first the user has to login by using user id and password that are
+  id=123456789
+  password=may i comein
+
+2)help command:- 
+  if you type only help you will get the description of the command which are already present on the system if the user type help after login without registering command he will get the two default command like help and blink which are installed by the developer itself ex- "help"
+ 
+  else if the user register any command and type help along with any command name which are already present on the system then he can get the help description related to the particular command only without getting  all the command description ex:-"help blink" or "help set" 
+                                                                    
+3)registeration 
+for registraton user has to give it option after login as per the given option on the screen and then the user need to provide correct name of the command and correct no of parameter ex:- "set 2" here set is the name of the command and 2 no of parameter need by the command to get registered in the application here the user can register only 3 command only after login that is set, get and concat command and the no of parameter are for each command is 
+for set 2, for get 1 and concat 2 user can registered these command as per the example
+
+4)processing
+after login user get the option for process he need to entered that particular option then he can perform the processing of the comman which are already registered with the system user need to provide the command and paramter in the right way to get process them like given below examples
+
+for set:-set can put or set the value for the parameter temperature and pressure ranging in integer value from 1-99 "set temp 45" or "set press 36"
+here temp and press are the argument and user need to entered them along with the command as same as mention in this example
+
+for get:-get  will get the value for the parameter like temperature and pressure which was set by user by using set command ex:-"get temp" or "get press""get leds" or"get led1/2/3/4/5" here temp and press are the argument and user need to entered them along with the command as same as  mention in this example get leds will get the status of all 5 leds which are set by using blink and get led1/2/3/4/5 will get the status of one particular led at one particular instant
+note:-never perform get processing before setting the parameter using the set command processing and blink command for setting the status
+
+for blink:- blink is use for setting the status of leds on or off here in my code i had faciliated the code with 5 leds so user can set the status of one led at one given instant only like "blink led1 on/off" same goes for led2,3,4,5 by using blink you see the status of the leds using get command
+

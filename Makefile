@@ -1,13 +1,13 @@
+#
+#
 OBJECT=main.o read.o write.o
 GC=gcc -c
-
-compile:$(OBJECT)
-	gcc -o compile  main.o read.o write.o
-
-main.o:main.c
-	$(GC) main.c
-read.o:read.c
-	$(GC) read.c
-write.o:write.c
-	$(GC) write.c
-
+INCLUDE=cmhead.h stdio.h string.h stdlib
+all:test1.o app.o regis.o 
+	gcc -o output    test1.o app.o regis.o  
+test1.o:test1.c  
+	$(GC) test1.c 
+app.o:app.c  
+	$(GC) app.c 
+regis.o:app.c  	
+	$(GC) regis.c 
